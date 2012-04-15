@@ -1,11 +1,6 @@
-require 'rspec/core/rake_task'
+task :default => 'test'
 
-task :default => 'spec'
-
-desc 'Run specs'
-task :spec do
-  RSpec::Core::RakeTask.new(:spec) do |t|
-    t.pattern = './spec/**/*_spec.rb'
-  end
+require 'rake/testtask'
+Rake::TestTask.new do |t|
+  t.pattern = "./spec/**/*_spec.rb"
 end
-

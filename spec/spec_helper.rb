@@ -1,19 +1,11 @@
 ENV['RACK_ENV'] = 'test'
 
-require File.join(File.dirname(__FILE__), '..', 'config', 'boot.rb')
+require './config/boot'
 
-require 'capybara/rspec'
+require 'minitest/autorun'
+require 'minitest/pride'
+require 'rack/test'
 
-Capybara.app = Application
+include Rack::Test::Methods
 
-RSpec.configure do |config|
-  config.include Rack::Test::Methods
-
-  config.color_enabled = true
-  config.formatter = :progress
-
-  def app
-    @app ||= Application
-  end
-end
-
+def app() Application end
