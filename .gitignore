@@ -6,5 +6,3 @@ tmp/
 *.swp
 *~
 .DS_Store
-coverage/
-
